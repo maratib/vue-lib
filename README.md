@@ -68,3 +68,6 @@ export default defineConfig({
 # Run the following command to build and package NPM
 yarn build
 yarn npm-pack
+
+#To add TGZ local package using yarn 
+yarn add file:/path/to/local/tarball.tgz
