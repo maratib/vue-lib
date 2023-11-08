@@ -11,7 +11,7 @@ yarn add -D json @types/node vite-plugin-dts
 ```javascript
 // Add following command to package.json scripts
 "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\"",
- "npm-pack": "cp package.json package1.json && npm pack && rm package.json && cp package1.json package.json && rm package1.json"
+"npm-pack": "cp package.json package1.json && npm pack && rm package.json && cp package1.json package.json && rm package1.json"
 
 // Adding to following to package.json
 "main": "./dist/my-lib.umd.js",
