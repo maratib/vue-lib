@@ -1,5 +1,5 @@
-# Vue 3 lib component
-
+# Vue 3 lib components
+This is to create custom Vue components library for publishing as NPM package.
 ```bash
 
 yarn create vite
@@ -10,7 +10,25 @@ yarn add -D json @types/node vite-plugin-dts
 ```
 ```javascript
 // Add following command to package.json scripts
-"prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
+"prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\"",
+ "npm-pack": "cp package.json package1.json && npm pack && rm package.json && cp package1.json package.json && rm package1.json"
+
+// Adding to following to package.json
+"main": "./dist/my-lib.umd.js",
+"module": "./dist/my-lib.es.js",
+"types": "./dist/index.d.ts",
+"files": [
+    "dist"
+  ],
+"peerDependencies": {
+    "vue": "^3.3.4"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/my-lib.es.js",
+      "require": "./dist/my-lib.umd.js"
+    }
+  },
 ```
 
 ## update vite.config.ts
@@ -46,4 +64,7 @@ export default defineConfig({
   },
 });
 ```
-
+```bash
+# Run the following command to build and package NPM
+yarn build
+yarn npm-pack
