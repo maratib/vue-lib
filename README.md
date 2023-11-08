@@ -1,4 +1,4 @@
-# Vue 3 lib components
+# Vue 3 Library components
 This is to create custom Vue components library for publishing as NPM package.
 ```bash
 
